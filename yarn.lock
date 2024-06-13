@@ -124,7 +124,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@babel/runtime@npm:^7.12.5, @babel/runtime@npm:^7.19.4, @babel/runtime@npm:^7.20.6, @babel/runtime@npm:^7.21.0, @babel/runtime@npm:^7.23.2":
+"@babel/runtime@npm:^7.12.5, @babel/runtime@npm:^7.19.4, @babel/runtime@npm:^7.20.6, @babel/runtime@npm:^7.21.0, @babel/runtime@npm:^7.23.2, @babel/runtime@npm:^7.24.1":
   version: 7.24.7
   resolution: "@babel/runtime@npm:7.24.7"
   dependencies:
@@ -183,6 +183,26 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@coinbase/onchainkit@npm:^0.20.5":
+  version: 0.20.5
+  resolution: "@coinbase/onchainkit@npm:0.20.5"
+  dependencies:
+    clsx: ^2.1.1
+    tailwind-merge: ^2.3.0
+    viem: ^2.13.8
+    wagmi: ^2.9.11
+  peerDependencies:
+    "@tanstack/react-query": ^5
+    "@xmtp/frames-validator": ^0.6.0
+    graphql: ^14 || ^15 || ^16
+    graphql-request: ^6.1.0
+    permissionless: ^0.1.29
+    react: ^18
+    react-dom: ^18
+  checksum: 14f5472971b92b7a3fd07d637320ed54f60651a5cc43cabc624c38111003a91e25b70aef7e80e1d8b2d4e1a07723a533100df691d95aac9d840587f13b35d067
+  languageName: node
+  linkType: hard
+
 "@coinbase/wallet-sdk@npm:4.0.0":
   version: 4.0.0
   resolution: "@coinbase/wallet-sdk@npm:4.0.0"
@@ -194,6 +214,20 @@ __metadata:
     preact: ^10.16.0
     sha.js: ^2.4.11
   checksum: f9101233cd4529daae235eb01fcd10fe3c9ab075b3171beacb755ff475be7a9e33957fb4ffedbdd34092c3045ddcbf6fda181a5adfd531307a4cc8937861ef38
+  languageName: node
+  linkType: hard
+
+"@coinbase/wallet-sdk@npm:4.0.3":
+  version: 4.0.3
+  resolution: "@coinbase/wallet-sdk@npm:4.0.3"
+  dependencies:
+    buffer: ^6.0.3
+    clsx: ^1.2.1
+    eventemitter3: ^5.0.1
+    keccak: ^3.0.3
+    preact: ^10.16.0
+    sha.js: ^2.4.11
+  checksum: 47c2818b57f13b1fa403a5e79fc3e039a8cfc4daf9e92910aec4fe32caa4f2326d13c7ff26bbe1921cdcae29acfe41fbf5f0d3c9d58ab39035f05b1737bc06ab
   languageName: node
   linkType: hard
 
@@ -971,6 +1005,25 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@metamask/sdk-communication-layer@npm:0.20.5":
+  version: 0.20.5
+  resolution: "@metamask/sdk-communication-layer@npm:0.20.5"
+  dependencies:
+    bufferutil: ^4.0.8
+    date-fns: ^2.29.3
+    debug: ^4.3.4
+    utf-8-validate: ^6.0.3
+    uuid: ^8.3.2
+  peerDependencies:
+    cross-fetch: ^4.0.0
+    eciesjs: ^0.3.16
+    eventemitter2: ^6.4.7
+    readable-stream: ^3.6.2
+    socket.io-client: ^4.5.1
+  checksum: 0329d7552927b9130134f408305dd3dc7624fc47f21bfe45f9f13bfdbaa666e8e094d28e4b4e999917249566135b9f8ae6d16118e4d95f49fc53a1f502746c39
+  languageName: node
+  linkType: hard
+
 "@metamask/sdk-install-modal-web@npm:0.20.2":
   version: 0.20.2
   resolution: "@metamask/sdk-install-modal-web@npm:0.20.2"
@@ -990,6 +1043,28 @@ __metadata:
     react-native:
       optional: true
   checksum: cba31f783ddb6351d5ef7e47d61a8eeee8ab3d95af345069ea0055ccc500da34c6f3c2e729db20664d4ff7f2c147d6e9f783131557cf28b1fb218737cdcc6d1c
+  languageName: node
+  linkType: hard
+
+"@metamask/sdk-install-modal-web@npm:0.20.4":
+  version: 0.20.4
+  resolution: "@metamask/sdk-install-modal-web@npm:0.20.4"
+  dependencies:
+    qr-code-styling: ^1.6.0-rc.1
+  peerDependencies:
+    i18next: 22.5.1
+    react: ^18.2.0
+    react-dom: ^18.2.0
+    react-i18next: ^13.2.2
+    react-native: "*"
+  peerDependenciesMeta:
+    react:
+      optional: true
+    react-dom:
+      optional: true
+    react-native:
+      optional: true
+  checksum: 0c77a532d0f0bec4db428cd5c0dc7cf91f3635750f5ac5febe842cf28e3446d27fae0a9bea2deb0170a69fd164cbbb25cee2bd033d45981507336526b9bc37cb
   languageName: node
   linkType: hard
 
@@ -1028,6 +1103,44 @@ __metadata:
     react-dom:
       optional: true
   checksum: f3e0a99e744c12cec7e3c00aa9f4517b467d0b403379b70780303877bc84fedc9f068738ef6dfd04426aec4235729bde1e1667cf54f744506eaf6df5345498ac
+  languageName: node
+  linkType: hard
+
+"@metamask/sdk@npm:0.20.5":
+  version: 0.20.5
+  resolution: "@metamask/sdk@npm:0.20.5"
+  dependencies:
+    "@metamask/onboarding": ^1.0.1
+    "@metamask/providers": ^15.0.0
+    "@metamask/sdk-communication-layer": 0.20.5
+    "@metamask/sdk-install-modal-web": 0.20.4
+    "@types/dom-screen-wake-lock": ^1.0.0
+    bowser: ^2.9.0
+    cross-fetch: ^4.0.0
+    debug: ^4.3.4
+    eciesjs: ^0.3.15
+    eth-rpc-errors: ^4.0.3
+    eventemitter2: ^6.4.7
+    i18next: 22.5.1
+    i18next-browser-languagedetector: 7.1.0
+    obj-multiplex: ^1.0.0
+    pump: ^3.0.0
+    qrcode-terminal-nooctal: ^0.12.1
+    react-native-webview: ^11.26.0
+    readable-stream: ^3.6.2
+    rollup-plugin-visualizer: ^5.9.2
+    socket.io-client: ^4.5.1
+    util: ^0.12.4
+    uuid: ^8.3.2
+  peerDependencies:
+    react: ^18.2.0
+    react-dom: ^18.2.0
+  peerDependenciesMeta:
+    react:
+      optional: true
+    react-dom:
+      optional: true
+  checksum: fe5e4bd089caa8034c795cdcf69cdecc3c0ae97c0d01bad6cbf47e59509cd8f98a077b3d3e1fe21617da8dc768071d9fd4c3aadd061a5a0ff58a27ff235d8e63
   languageName: node
   linkType: hard
 
@@ -1605,6 +1718,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@se-2/nextjs@workspace:packages/nextjs"
   dependencies:
+    "@coinbase/onchainkit": ^0.20.5
     "@heroicons/react": ~2.0.11
     "@rainbow-me/rainbowkit": 2.1.0
     "@tanstack/react-query": ~5.28.6
@@ -2519,6 +2633,28 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@wagmi/connectors@npm:5.0.14":
+  version: 5.0.14
+  resolution: "@wagmi/connectors@npm:5.0.14"
+  dependencies:
+    "@coinbase/wallet-sdk": 4.0.3
+    "@metamask/sdk": 0.20.5
+    "@safe-global/safe-apps-provider": 0.18.1
+    "@safe-global/safe-apps-sdk": 8.1.0
+    "@walletconnect/ethereum-provider": 2.13.0
+    "@walletconnect/modal": 2.6.2
+    cbw-sdk: "npm:@coinbase/wallet-sdk@3.9.3"
+  peerDependencies:
+    "@wagmi/core": 2.11.2
+    typescript: ">=5.0.4"
+    viem: 2.x
+  peerDependenciesMeta:
+    typescript:
+      optional: true
+  checksum: 600592eaebd1d9b5378db27b567f4c6580a31bd7f7ba93d7ff4b6e46157542755a762668988a597fd5264569fa41e8af62a82d3d92218d973008aa44673216ab
+  languageName: node
+  linkType: hard
+
 "@wagmi/connectors@npm:5.0.2":
   version: 5.0.2
   resolution: "@wagmi/connectors@npm:5.0.2"
@@ -2558,6 +2694,26 @@ __metadata:
     typescript:
       optional: true
   checksum: a738aea155f662da2e538c3ba8ee2556eb317abc8a1bcac1e3d3002300dd65a7c7d7fa414419d8a306e0612c47e226368cacb88111b7071cd01366672a3394d0
+  languageName: node
+  linkType: hard
+
+"@wagmi/core@npm:2.11.2":
+  version: 2.11.2
+  resolution: "@wagmi/core@npm:2.11.2"
+  dependencies:
+    eventemitter3: 5.0.1
+    mipd: 0.0.5
+    zustand: 4.4.1
+  peerDependencies:
+    "@tanstack/query-core": ">=5.0.0"
+    typescript: ">=5.0.4"
+    viem: 2.x
+  peerDependenciesMeta:
+    "@tanstack/query-core":
+      optional: true
+    typescript:
+      optional: true
+  checksum: c38600025eff87981daf2237a763c79003a6ec2e5e6883a75a7e8de6dd1c58025e98a9bff4638b9a1984dd34eef04b7c596e27611fc11565c80c9d3d3f0beca9
   languageName: node
   linkType: hard
 
@@ -3802,6 +3958,13 @@ __metadata:
   version: 1.2.1
   resolution: "clsx@npm:1.2.1"
   checksum: 30befca8019b2eb7dbad38cff6266cf543091dae2825c856a62a8ccf2c3ab9c2907c4d12b288b73101196767f66812365400a227581484a05f968b0307cfaf12
+  languageName: node
+  linkType: hard
+
+"clsx@npm:^2.1.1":
+  version: 2.1.1
+  resolution: "clsx@npm:2.1.1"
+  checksum: acd3e1ab9d8a433ecb3cc2f6a05ab95fe50b4a3cfc5ba47abb6cbf3754585fcb87b84e90c822a1f256c4198e3b41c7f6c391577ffc8678ad587fc0976b24fd57
   languageName: node
   linkType: hard
 
@@ -9735,6 +9898,15 @@ __metadata:
   languageName: node
   linkType: hard
 
+"tailwind-merge@npm:^2.3.0":
+  version: 2.3.0
+  resolution: "tailwind-merge@npm:2.3.0"
+  dependencies:
+    "@babel/runtime": ^7.24.1
+  checksum: 1254eea9b6ec480911f01e2909e3ba35ca3c534d9db1405dfe9bdf51d100663a3935cb20662c023ab44ee9679bce10d86bd27beba23d0174beff32a6acb06978
+  languageName: node
+  linkType: hard
+
 "tailwindcss@npm:~3.4.3":
   version: 3.4.4
   resolution: "tailwindcss@npm:3.4.4"
@@ -10600,6 +10772,27 @@ __metadata:
   languageName: node
   linkType: hard
 
+"viem@npm:^2.13.8":
+  version: 2.13.10
+  resolution: "viem@npm:2.13.10"
+  dependencies:
+    "@adraffy/ens-normalize": 1.10.0
+    "@noble/curves": 1.2.0
+    "@noble/hashes": 1.3.2
+    "@scure/bip32": 1.3.2
+    "@scure/bip39": 1.2.1
+    abitype: 1.0.0
+    isows: 1.0.4
+    ws: 8.13.0
+  peerDependencies:
+    typescript: ">=5.0.4"
+  peerDependenciesMeta:
+    typescript:
+      optional: true
+  checksum: ea974cdad55635db8ef3e50aaf5d9872f2150159991c413cfc547f8188ddc18ed5cdfd57fce610e2463df70133e32d0773f4407b8d3297b59ffa5739ae0acb5c
+  languageName: node
+  linkType: hard
+
 "wagmi@npm:2.9.2":
   version: 2.9.2
   resolution: "wagmi@npm:2.9.2"
@@ -10616,6 +10809,25 @@ __metadata:
     typescript:
       optional: true
   checksum: 202a5b1c2e78c698f3b23817415ca5e588632c82182f7f7d33175c1cdcebe497aa8c41a83f021d7d6c9ed091c611cc252a7b5146b6ceb1be60153d744cc23b4e
+  languageName: node
+  linkType: hard
+
+"wagmi@npm:^2.9.11":
+  version: 2.10.2
+  resolution: "wagmi@npm:2.10.2"
+  dependencies:
+    "@wagmi/connectors": 5.0.14
+    "@wagmi/core": 2.11.2
+    use-sync-external-store: 1.2.0
+  peerDependencies:
+    "@tanstack/react-query": ">=5.0.0"
+    react: ">=18"
+    typescript: ">=5.0.4"
+    viem: 2.x
+  peerDependenciesMeta:
+    typescript:
+      optional: true
+  checksum: c7b4dd87b8c18bd717fd4242a29e0b0b6e17045581052f511c9bd7643c5ac5eb658026037bf5f22c105afed69d155d7562c98a657655346006dafbc9494d5857
   languageName: node
   linkType: hard
 
