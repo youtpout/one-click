@@ -18,6 +18,13 @@ contract Invest {
     IWETH public immutable weth;
     ISwapRouter02 public immutable router;
 
+    event Invested(
+        address indexed token,
+        address indexed investor,
+        uint256 indexed tokenId,
+        uint256 amount
+    );
+
     // Constructor: Called once on contract deployment
     // Check packages/foundry/deploy/Deploy.s.sol
     constructor(address _owner, address _weth, address _router) {
@@ -34,21 +41,23 @@ contract Invest {
     ) public payable returns (uint256) {
         uint256 amount = 0;
         weth.deposit{value: msg.value}();
+
         return 0;
     }
 
     function _swapExactInputSingleHop(
         uint256 amountIn,
-        uint256 amountOutMin
+        uint256 amountOutMin,
+        uint24 fee
     ) private {
-        weth.transfer(address(this), amountIn);
+        //weth.transfer(address(this), amountIn);
         weth.approve(address(router), amountIn);
 
         ISwapRouter02.ExactInputSingleParams memory params = ISwapRouter02
             .ExactInputSingleParams({
                 tokenIn: address(weth),
                 tokenOut: address(weth),
-                fee: 500,
+                fee: fee,
                 recipient: msg.sender,
                 amountIn: amountIn,
                 amountOutMinimum: amountOutMin,
