@@ -17,6 +17,8 @@ contract Invest {
     address public immutable owner;
     IWETH public immutable weth;
     ISwapRouter02 public immutable router;
+    // 10_000 = 100%
+    uint256 public fees;
 
     event Invested(
         address indexed token,
@@ -27,10 +29,12 @@ contract Invest {
 
     // Constructor: Called once on contract deployment
     // Check packages/foundry/deploy/Deploy.s.sol
-    constructor(address _owner, address _weth, address _router) {
+    constructor(address _owner, address _weth, address _router, uint256 _fees) {
         owner = _owner;
         weth = IWETH(_weth);
         router = ISwapRouter02(_router);
+        require(_fees < 100, "Fees can't be more than 1 %");
+        fees = _fees;
     }
 
     function InvestNative(
@@ -39,24 +43,50 @@ contract Invest {
         uint256 tickLower,
         uint256 tickUpper
     ) public payable returns (uint256) {
-        uint256 amount = 0;
-        weth.deposit{value: msg.value}();
+        uint256 platformFees = 0;
+        if (fees > 0) {
+            platformFees = (msg.value * fees) / 10_000;
+            (bool sent, ) = owner.call{value: platformFees}("");
+            require(sent, "Failed to send Ether");
+        }
+        uint256 amountInvested = msg.value - platformFees;
+        weth.deposit{value: amountInvested}();
+
+        return 0;
+    }
+
+    function InvestToken(
+        address token,
+        uint256 amount,
+        address counterPart,
+        uint24 fee,
+        uint256 tickLower,
+        uint256 tickUpper
+    ) public returns (uint256) {
+        IERC20(token).transferFrom(msg.sender, address(this), amount);
+        uint256 platformFees = 0;
+        if (fees > 0) {
+            platformFees = (amount * fees) / 10_000;
+            IERC20(token).transfer(owner, platformFees);
+        }
+        uint256 amountInvested = amount - platformFees;
 
         return 0;
     }
 
     function _swapExactInputSingleHop(
+        address tokenIn,
+        address tokenOut,
         uint256 amountIn,
         uint256 amountOutMin,
         uint24 fee
     ) private {
-        //weth.transfer(address(this), amountIn);
-        weth.approve(address(router), amountIn);
+        IERC20(tokenIn).approve(address(router), amountIn);
 
         ISwapRouter02.ExactInputSingleParams memory params = ISwapRouter02
             .ExactInputSingleParams({
-                tokenIn: address(weth),
-                tokenOut: address(weth),
+                tokenIn: tokenIn,
+                tokenOut: tokenOut,
                 fee: fee,
                 recipient: msg.sender,
                 amountIn: amountIn,
